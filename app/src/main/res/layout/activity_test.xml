@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/idResponse"  />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="0dp"
+            android:layout_alignParentEnd="true">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:textSize="18sp"
+                android:text="获取二维码"
+                android:id="@+id/btnQryURL"
+                android:layout_gravity="bottom" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp"
+                android:text="结果查询"
+                android:id="@+id/btnQryPayResult"
+                android:layout_gravity="bottom" />
+			<Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp"
+                android:text="关闭订单"
+                android:id="@+id/btnCloseOrder"
+                android:layout_gravity="bottom" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp"
+                android:text="退出"
+                android:id="@+id/btnExit"
+                android:layout_gravity="bottom" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

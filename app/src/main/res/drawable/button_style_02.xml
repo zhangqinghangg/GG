@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <code class="comments">
+        view的各种状态(正常无焦点,焦点,onclick按下、放开等等)
+	    gradient 主体渐变 startColor开始颜色，endColor结束颜色 ，
+	    angle开始渐变的角度（值只能为90的倍数，0时为左 到右渐变，90时为下到上渐变，依次逆时针类推）
+		stroke 边框 width 边框宽度，color 边框颜色
+		corners 圆角 radius 半径，0为直角
+		padding text值的相对位置    
+    </code>
+    <item android:state_pressed="true">
+        <shape>
+            <gradient android:startColor="#F0FFF0" android:endColor="#F0FFF0" android:angle="270" />
+            <code class="comments">颜色渐变</code>
+            <stroke android:width="1dip" android:color="#778899" />
+            <code class="comments">按钮边缘</code>
+            <corners android:radius="2dp" />
+            <code class="comments">按钮四个圆角</code>
+            <padding android:left="10dp" android:top="10dp" android:right="10dp" android:bottom="10dp" />
+            <code class="comments">按钮文字和边缘距离(内边距)</code>
+        </shape>
+    </item>
+   
+    <item android:state_focused="true">
+        <shape>
+            <gradient android:startColor="#F0FFF0" android:endColor="#F0FFF0" android:angle="270" />
+            <stroke android:width="1dip" android:color="#778899" />
+            <corners android:radius="2dp" />
+            <padding android:left="10dp" android:top="10dp" android:right="10dp" android:bottom="10dp" />
+        </shape>
+    </item>
+   
+    <item>
+        <shape>
+            <gradient android:startColor="#FFDEAD" android:endColor="#FFFFFF" android:angle="90" />
+            <stroke android:width="1dip" android:color="#778899" />
+            <corners android:radius="5dip" />
+            <padding android:left="10dp" android:top="10dp" android:right="10dp" android:bottom="10dp" />
+        </shape>
+    </item>
+</selector>

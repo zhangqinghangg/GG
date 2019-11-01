@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4169E1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="  设     置     管    理    "
+        android:textColor="#fff"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_zhuye"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style_01"
+            android:layout_margin="10dp"
+            android:onClick="xiangji"
+            android:text="返回主页"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_MQconfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_style_01"
+            android:onClick="tuku"
+            android:textSize="20dp"
+            android:text="MQ配置"
+            />
+          <Button
+            android:id="@+id/btn_devconfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+              android:background="@drawable/button_style_01"
+            android:layout_margin="10dp"
+            android:onClick="tuku"
+            android:textSize="20dp"
+            android:text="终端配置"
+            />
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style_01"
+            android:layout_margin="10dp"
+            android:onClick="tuku"
+            android:textSize="20dp"
+            android:text="检测新版本"
+            />
+
+        <Button
+            android:id="@+id/btn_tuichu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_style_01"
+            android:onClick="tuku"
+            android:text="退出应用"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+</LinearLayout>

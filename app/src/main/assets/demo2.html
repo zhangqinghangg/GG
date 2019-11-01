@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" http-equiv="Content-Type"
+          content="width=device-width,initial-scale=1; charset=UTF-8 "/>
+    <title>测试</title>
+
+    <style type="text/css" media="screen">
+   body { padding: 1px; font: 15px '微软雅黑', 'Trebuchet MS', Arial, Helvetica;
+    background-color: #d9dee2; }
+.btn { display: block; position: relative; background: #aaa; padding:4px; float: left; color: #fff; text-decoration: none; cursor: pointer; }
+.btn * { font-style: normal; background-image: url(btn2.png); background-repeat: no-repeat; display: block; position: relative; }
+.btn i { background-position: top left; position: absolute; margin-bottom: -5px;  top: 0; left: 0; width: 5px; height: 5px; }
+.btn span { background-position: bottom left; left: -5px; padding: 0 0 3px 5px; margin-bottom: -2px; }
+.btn span i { background-position: bottom right; margin-bottom: 0; position: absolute; left: 100%; width: 10px; height: 100%; top: 0; }
+.btn span span { background-position: top right; position: absolute; right: -5px; margin-left: 5px; top: -2px; height: 0; }
+* html .btn span,
+* html .btn i { float: left; width: auto; background-image: none; cursor: pointer; }
+.btn.blue { background: #2ae; }
+.btn.green { background: #9d4; }
+.btn.pink { background: #e1a; }
+.btn:hover { background-color: #a00; }
+.btn:active { background-color: #444; }
+.btn[class] { background-position: bottom; }
+* html .btn { border: 1px double #aaa; }
+* html .btn.blue { border-color: #2ae; }
+* html .btn.green { border-color: #9d4; }
+* html .btn.pink { border-color: #e1a; }
+* html .btn:hover { border-color: #a00; }
+p { clear: both; padding-bottom: 1.5em; }
+form { margin-top: 1em; }
+form p .btn { margin-right: 0.5em; }
+textarea { margin: 0.5em 0;}
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<form method="post" action="#">
+    <fieldset>
+        <h2 align="center">GGHtmlDemo</h2>
+    </fieldset>
+</form>
+<hr>
+<form method="post" action="#">
+    <fieldset>
+        <!--<h3 style="color:red">系统按键</h3>-->
+        <legend style="color:red">系统按键</legend>
+        <p>
+            <input class="btn blue" type="button" value="手机配置" onclick="showConfig()"
+                   style="height:30px;width:70px;color:White"/>
+            <input type="button" class="btn blue" value="项目信息"
+                   style="height:30px;width:70px;color:White"
+                   onclick="showAppVersion()"/>
+            <input class="btn blue" type="button" value="重启"
+                   style="height:30px;width:70px;color:White"
+                   onclick="showToast()"/>
+            <input class="btn blue" type="button" value="关机"
+                   style="height:30px;width:70px;color:White"
+                   onclick="showShutDown()"/>
+        </p>
+        <p>
+            <input class="btn blue" type="button" value="开启副屏1"
+                   style="height:30px;width:70px;color:White"
+                   onclick="showDifferentDisplay()"/>
+            <input class="btn blue" type="button" value="开启副屏2"
+                   style="height:30px;width:70px;color:White"
+                   onclick="showDifferentDisplay2()"/>
+            <input class="btn blue" type="button" value="操作副屏1"
+                   style="height:30px;width:70px;color:White"
+                   onclick="exeDifferentDisplay()"/>
+            <input class="btn blue" type="button" value="操作副屏2"
+                   style="height:30px;width:70px;color:White"
+                   onclick="exeDifferentDisplay2()"/>
+        </p>
+        <p>
+            <input class="btn blue" type="button" value="轮询功能"
+                   style="height:30px;width:70px;color:White"
+                   onclick="polling()"/>
+            <input class="btn blue" type="button" value="Web日志"
+                   style="height:30px;width:70px;color:White"
+                   onclick="showweblog()"/>
+            <input class="btn blue" type="button" value="获取科室配置"
+                   style="height:30px;width:70px;color:White"
+                   onclick="showconfig()"/>
+            <input class="btn blue" type="button" value="语音是否播放"
+                   style="height:30px;width:70px;color:White"
+                   onclick="showspeaking()"/>
+
+
+        </p>
+        <p>
+            <input class="btn blue" type="button" value="开启HTTP交易线程"
+                   style="height:30px;width:110px;color:White"
+                   onclick="showhttpthread(ini,section)"/>
+            <input class="btn blue" type="button" value="开启MQ线程"
+                   style="height:30px;width:110px;color:White"
+                   onclick="showthread()"/>
+        </p>
+    </fieldset>
+</form>
+<hr>
+<h2 style="color:red">功能按键</h2>
+<hr>
+<h3 style="color:blue">功能1：自定义界面</h3>
+<p>
+    <input class="btn blue" style="height:30px;width:130px;color:White" type="submit" name="Submit2"
+           value="点击（带对话框）"
+           onclick="firm()"/>
+    <input class="btn blue" style="height:30px;width:130px;color:White" type="submit" name="Submit2"
+           value="点击（无对话框）"
+           onclick="showload()"/>
+</p>
+<hr>
+<h3 style="color:blue">功能2：文字转语音</h3>
+<p>文本：<input id="text" type="text" name="文本" value="请输入需要转换的文本"
+             style="height:20px;width:250px;color:red;background:HoneyDew  "/>
+</p>
+<p>音调(0,100)：<input id="yindiao" type="text" name="音调" value="50"
+                    style="height:20px;width:45px;color:red;background:HoneyDew"/>
+    音量(0,100)：<input id="yinliang" type="text" name="音量" value="50"
+                     style="height:20px;width:45px;color:red;background:HoneyDew"/>
+</p>
+<p>
+    <input class="btn blue" type="submit" name="Submit4" value="讯飞语音"
+           style="height:30px;width:80px;color:White"
+           onclick="showSpeech(text.value,pitch.value,volume.value)"/>
+    <input class="btn blue" type="submit" name="Submit4" value="系统语音"
+           style="height:30px;width:80px;color:White"
+           onclick="showSysSpeech(text.value,3)"/>
+</p>
+<hr>
+<h3 style="color:blue">功能3：读写文件接口</h3>
+<p>
+    ini文件名：<input id="ini" type="text" name=".ini" value="browser"
+                  style="height:20px;width:250px;color:red;background:HoneyDew"/>
+</p>
+<p>
+    目录名称：<input id="section" type="text" name="目录" value="医院"
+                style="height:20px;width:250px;color:red;background:HoneyDew"/>
+</p>
+<p>
+    写键值对：<input id="keyvalue" type="text" name="键值对" value="终端号:134&科室号:999&病人:000"
+                style="height:20px;width:250px;color:red;background:HoneyDew"/>
+</p>
+<p>
+    <input class="btn blue" style="height:30px;width:80px;color:White" type="submit" name="Submit4"
+           value="写文件"
+           onclick="putCache(ini.value,section.value,keyvalue.value,'UTF-8')"/>
+</p>
+<p>
+    ini文件名：<input id="outini" type="text" name=".ini" value="browser"
+                  style="height:20px;width:250px;color:red;background:HoneyDew"/>
+</p>
+<p>
+    目录名称：<input id="outsection" type="text" name="目录" value="医院"
+                style="height:20px;width:250px;color:red;background:HoneyDew"/>
+</p>
+<p>
+    键值数据：<input id="key" type="text" name="键值" value="终端号&科室号&病人"
+                style="height:20px;width:250px;color:red;background:HoneyDew"/>
+</p>
+<p>
+    <input class="btn blue" style="height:30px;width:80px;color:White" type="submit" name="Submit4"
+           value="读文件"
+           onclick="getCache(outini.value,outsection.value,key.value,'UTF-8')"/>
+    <input class="btn blue" style="height:30px;width:80px;color:White" type="submit" name="Submit4"
+           value="轮询读文件"
+           onclick="pollingGetCache(outini.value,outsection.value,key.value,'UTF-8')"/>
+
+</p>
+<hr>
+<h3 style="color:blue">功能4：访问后台数据</h3>
+<p>后台接口：<input id="dataid" type="text" name="hrescode" value="http://jeremyda.cn:8019/api/queue/get"
+               style="height:20px;width:250px;color:red;background:HoneyDew"/>
+</p>
+<p>数据请求：<input id="data" type="text" name="rescode" value="idLevel:1101&idDev:Dev1"
+               style="height:20px;width:250px;color:red;background:HoneyDew"/>
+</p>
+编码方式：<select id="encode" style="height:25px;width:80px;color:red;background:HoneyDew">
+    <option value="UTF-8">UTF-8</option>
+    <option value="GBK">GBK</option>
+    <option value="ASCII">ASCII</option>
+    <option value="GB2312">GB2312</option>
+</select>
+<p>
+    <input class="btn blue" style="height:30px;width:80px;color:White" class="btn blue"
+           type="submit" name="Submit5"
+           value="提交"
+           onclick="showData(dataId.value,data.value,encode.options[encode.selectedIndex].value)"/>
+    <input class="btn blue" style="height:30px;width:80px;color:White" class="btn blue"
+           type="submit" name="Submit6"
+           value="设置"
+           onclick="showSet()"/>
+</p>
+<hr>
+<h3 style="color:blue">功能5：对话框访问数据</h3>
+<p>
+    <input class="btn blue" style="height:30px;width:80px;color:White" type="submit" name="Submit3"
+           value="提交"
+           onclick="prom()"/>
+</p>
+<hr>
+<h3 style="color:blue">功能6：Android推送数据至js</h3>
+<p>
+    <input class="btn blue" style="height:30px;width:80px;color:White" type="submit" name="Submit4"
+           value="提交"
+           onclick="webView()"/>
+</p>
+<hr>
+
+<form method="post" action="#">
+    <fieldset>
+        <legend style="color:red">数据显示区</legend>
+        <p id="demo" style="width:300px;color:DarkGreen"></p>
+    </fieldset>
+</form>
+</body>
+<script language="javascript">
+var dataId = document.getElementById("dataid")
+var data = document.getElementById("data")
+var encode = document.getElementById("encode")
+var text = document.getElementById("text")
+var pitch = document.getElementById("yindiao")
+var volume = document.getElementById("yinliang")
+var ini = document.getElementById("ini")
+var section =document.getElementById("section")
+var outsection =document.getElementById("outsection")
+var keyvalue = document.getElementById("keyvalue")
+var outini = document.getElementById("outini")
+var key = document.getElementById("key")
+
+
+ function firm()
+ {
+     if(confirm("请你前往页面？"))
+     {
+         location.href="http://www.ggzzrj.cn:8080/ued/test/android/index.html";
+     }
+     else
+     {
+         alert("你选择了不去！那你自己排队去吧");
+     }
+ }
+ function prom()
+ {
+     var str=prompt("请输入正确的json请求包","idLevel&0001&idDev&Dev1");
+     if(str)
+     {
+              document.getElementById("demo").innerHTML= str
+
+     }
+     else{
+      document.getElementById("demo").innerHTML= "感谢您的测试！"
+     }
+ }
+
+function showConfig() {
+        var str = ggie.DeviceInfo();
+        document.getElementById("demo").innerHTML= str
+     }
+
+function showAppVersion() {
+        var appversion = ggie.version();
+        document.getElementById("demo").innerHTML= appversion
+     }
+
+
+function showSpeech(text,pitch,volume) {
+         ggie.speech(text,pitch,volume);
+     }
+
+function showSysSpeech(text,time) {
+         ggie.sysSpeech(text,time);
+     }
+
+function showShutDown() {
+         ggie.shutDown();
+     }
+
+ function showData(id,code,ecode) {
+        var str = ggie.data(id,code,ecode);
+        document.getElementById("demo").innerHTML= str
+     }
+
+ function webView() {
+        ggie.webView();
+       }
+
+ function showSet() {
+        ggie.setData();
+       }
+
+ function showDifferentDisplay() {
+        ggie.setDisplayActivity();
+       }
+ function showDifferentDisplay2() {
+        ggie.setDisplayH5();
+       }
+ function exeDifferentDisplay() {
+        ggie.exeDisplayActivity();
+       }
+  function exeDifferentDisplay2() {
+        ggie.exeDisplayH5();
+       }
+  function putCache(ini,section,keyvalue,encode) {
+        ggie.putCache(ini,section,keyvalue,encode);
+        var keyvalue = document.getElementById("keyvalue")
+        document.getElementById("demo").innerHTML=keyvalue.value
+       }
+
+ function getCache(outini,outsection,key,encode) {
+       var str= ggie.getCache(outini,outsection,key,encode);
+        document.getElementById("demo").innerHTML= str
+       }
+  function polling() {
+       ggie.polling();
+       }
+  function showload() {
+       ggie.load();
+       }
+
+  function showweblog() {
+       ggie.webLog("这是web测试的日志");
+         document.getElementById("demo").innerHTML="这是web测试的日志"
+       }
+
+  function showconfig() {
+      var str = ggie.getConfig();
+       document.getElementById("demo").innerHTML= str
+       }
+
+  function showthread() {
+      ggie.getMQThread();
+       }
+
+  function showhttpthread(ini,section) {
+      ggie.getHttpThread(ini,section);
+       }
+  function showspeaking() {
+     var str = ggie.Speaking();
+     document.getElementById("demo").innerHTML= str
+       }
+   function speachOver(ini){
+    document.getElementById("demo").innerHTML= ini
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</html>
+

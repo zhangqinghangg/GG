@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+        <!-- 腾讯X5WebView-->
+        <com.tencent.smtt.sdk.WebView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></com.tencent.smtt.sdk.WebView>
+        <!-- 使用抽取的X5WebView-->
+        <utlis.X5WebView
+            android:id="@+id/webview_a"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></utlis.X5WebView>
+
+
+        <Button
+            android:id="@+id/startBtn"
+            android:layout_width="60dp"
+            android:layout_height="64dp"
+            android:background="@android:color/transparent"
+            android:onClick="setting" />
+
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textColor="#FF0000"
+            android:gravity="center_horizontal"
+            android:textSize="100dp" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF0000"
+            android:layout_below="@id/tv"
+            android:gravity="center"
+            android:textSize="100dp" />
+    </RelativeLayout>
+</RelativeLayout>
